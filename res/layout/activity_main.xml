@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/frame"
+   tools:context=".MainActivity"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="vertical" >
+  <TableLayout 
+   android:layout_width="match_parent"
+   android:stretchColumns="1"
+   android:shrinkColumns="1"
+ android:layout_height="wrap_content"  android:layout_gravity="center_vertical">
+   <TableRow android:id="@+id/firstrow">
+       <Button android:id="@+id/clearbutton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="@string/clearstring"
+       />
+      <Button android:id="@+id/redbackground"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:text="@string/redbackgroundstring"
+         />      
+      <Button android:id="@+id/bluebackground"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:text="@string/bluebackgroundstring"
+        />   
+        <Button android:id="@+id/yellowbackground"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:text="@string/yellowbackgroundstring"
+     />      
+      <Button android:id="@+id/greenbackground"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:text="@string/greenbackgroundstring"
+   />   
+    </TableRow>   
+    <TableRow android:id="@+id/secondrow">
+      <Button android:id="@+id/iconbutton"
+       android:layout_width="200dp"
+       android:layout_height="50dp"
+       android:text="@string/iconstring"
+    /> 
+     
+    <Button android:id="@+id/redpen"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:text="@string/redbackgroundstring"
+         />      
+      <Button android:id="@+id/bluepen"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:text="@string/bluebackgroundstring"
+        />   
+    <Button android:id="@+id/yellowpen"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:text="@string/yellowbackgroundstring"
+     />      
+      <Button android:id="@+id/greenpen"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:text="@string/greenbackgroundstring"
+   />      
+     </TableRow>
+
+ 
+   </TableLayout>  
+     <com.example.sketchapic.DrawView android:id="@+id/paper"
+         android:layout_width="match_parent"
+         android:layout_height="750dp"
+         android:background="@color/red"
+          /> 
+    </LinearLayout>
