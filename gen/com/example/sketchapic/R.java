@@ -994,7 +994,17 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int ic_launcher=0x7f020057;
+        public static final int blue=0x7f020057;
+        public static final int bluepen=0x7f020058;
+        public static final int clear=0x7f020059;
+        public static final int drawing=0x7f02005a;
+        public static final int green=0x7f02005b;
+        public static final int greenpen=0x7f02005c;
+        public static final int ic_launcher=0x7f02005d;
+        public static final int red=0x7f02005e;
+        public static final int redpen=0x7f02005f;
+        public static final int yellow=0x7f020060;
+        public static final int yellowpen=0x7f020061;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1176,6 +1186,7 @@ containing a value of this type.
         public static final int blue=0x7f0a0014;
         public static final int bluebackgroundstring=0x7f0a001c;
         public static final int clearstring=0x7f0a000f;
+        public static final int desc=0x7f0a001e;
         public static final int green=0x7f0a0019;
         public static final int greenbackgroundstring=0x7f0a001d;
         public static final int hello_world=0x7f0a0010;

@@ -18,6 +18,7 @@
       <string name="redbackgroundstring">Red</string>
               <string name="bluebackgroundstring">Blue</string>
                  <string name="greenbackgroundstring">Green</string>
+                 <string name="desc">String</string>
    
 
 </resources>

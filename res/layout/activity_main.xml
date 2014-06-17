@@ -11,30 +11,40 @@
    android:shrinkColumns="1"
  android:layout_height="wrap_content"  android:layout_gravity="center_vertical">
    <TableRow android:id="@+id/firstrow">
-       <Button android:id="@+id/clearbutton"
+       <ImageButton android:id="@+id/clearbutton"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="@string/clearstring"
+       android:src="@drawable/clear"
+       android:contentDescription="@string/desc"
        />
-      <Button android:id="@+id/redbackground"
+      <ImageButton android:id="@+id/redbackground"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:text="@string/redbackgroundstring"
+       android:src="@drawable/red"
+       android:contentDescription="@string/desc"
          />      
-      <Button android:id="@+id/bluebackground"
+      <ImageButton android:id="@+id/bluebackground"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:text="@string/bluebackgroundstring"
+        android:src="@drawable/blue"
+        android:contentDescription="@string/desc"
         />   
-        <Button android:id="@+id/yellowbackground"
+       <ImageButton android:id="@+id/yellowbackground"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:text="@string/yellowbackgroundstring"
+       android:src="@drawable/yellow"
+       android:contentDescription="@string/desc"
      />      
-      <Button android:id="@+id/greenbackground"
+      <ImageButton android:id="@+id/greenbackground"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:text="@string/greenbackgroundstring"
+       android:src="@drawable/green"
+       android:contentDescription="@string/desc"
    />   
     </TableRow>   
     <TableRow android:id="@+id/secondrow">
@@ -44,25 +54,33 @@
        android:text="@string/iconstring"
     /> 
      
-    <Button android:id="@+id/redpen"
+    <ImageButton android:id="@+id/redpen"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:text="@string/redbackgroundstring"
+       android:src="@drawable/redpen"
+       android:contentDescription="@string/desc"
          />      
-      <Button android:id="@+id/bluepen"
+      <ImageButton android:id="@+id/bluepen"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:text="@string/bluebackgroundstring"
+       android:src="@drawable/bluepen"
+       android:contentDescription="@string/desc"
         />   
-    <Button android:id="@+id/yellowpen"
+    <ImageButton android:id="@+id/yellowpen"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:text="@string/yellowbackgroundstring"
+       android:src="@drawable/yellowpen"
+       android:contentDescription="@string/desc"
      />      
-      <Button android:id="@+id/greenpen"
+      <ImageButton android:id="@+id/greenpen"
        android:layout_width="100dp"
        android:layout_height="50dp"
        android:text="@string/greenbackgroundstring"
+       android:src="@drawable/greenpen"
+       android:contentDescription="@string/desc"
    />      
      </TableRow>
 

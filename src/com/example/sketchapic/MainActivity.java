@@ -3,11 +3,12 @@ package com.example.sketchapic;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-//import android.util.Log;
+import android.util.Log;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Bitmap;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 
@@ -20,6 +21,9 @@ public class MainActivity extends Activity {
 	private float newx;
 	private float newy;
 	public Bitmap mBitmap;
+	private Boolean icon=false;
+	
+
 	
 
 	
@@ -30,75 +34,82 @@ public class MainActivity extends Activity {
 	    drawView=(DrawView) findViewById (R.id.paper);
 	    
 		
-		final Button clearbutton = (Button) findViewById(R.id.clearbutton);
+		final ImageButton clearbutton = (ImageButton) findViewById(R.id.clearbutton);
 		clearbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.clearsheet();
             }
 		});
 	
-		final Button redbackgroundbutton = (Button) findViewById(R.id.redbackground);
+		final ImageButton redbackgroundbutton = (ImageButton) findViewById(R.id.redbackground);
 		redbackgroundbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.setBackgroundColor(Color.RED);	
             }
 		});
 		
-		final Button bluebackgroundbutton = (Button) findViewById(R.id.bluebackground);
+		final ImageButton bluebackgroundbutton = (ImageButton) findViewById(R.id.bluebackground);
 		bluebackgroundbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.setBackgroundColor(Color.BLUE);
             }
 		});
 		
-		final Button yellowbackgroundbutton = (Button) findViewById(R.id.yellowbackground);
+		final ImageButton yellowbackgroundbutton = (ImageButton) findViewById(R.id.yellowbackground);
 		yellowbackgroundbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.setBackgroundColor(Color.YELLOW);
             }
 		});
 		
-		final Button greenbackgroundbutton = (Button) findViewById(R.id.greenbackground);
+		final ImageButton greenbackgroundbutton = (ImageButton) findViewById(R.id.greenbackground);
 		greenbackgroundbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.setBackgroundColor(Color.GREEN);
             }
 		});
 		
-		final Button redpenbutton = (Button) findViewById(R.id.redpen);
+		final ImageButton redpenbutton = (ImageButton) findViewById(R.id.redpen);
 		redpenbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	
             	drawView.setPenColor(Color.RED);
+            	icon=false;
             }
 		});
 		
-		final Button bluepenbutton = (Button) findViewById(R.id.bluepen);
+		final ImageButton bluepenbutton = (ImageButton) findViewById(R.id.bluepen);
 		bluepenbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.setPenColor(Color.BLUE);
+            	icon=false;
             }
 		});
 		
-		final Button yellowpenbutton = (Button) findViewById(R.id.yellowpen);
+		final ImageButton yellowpenbutton = (ImageButton) findViewById(R.id.yellowpen);
 		yellowpenbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {	
             	drawView.setPenColor(Color.YELLOW);
+            	icon=false;
             }
 		});
 		
-		final Button greenpenbutton = (Button) findViewById(R.id.greenpen);
+		final ImageButton greenpenbutton = (ImageButton) findViewById(R.id.greenpen);
 		greenpenbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.setPenColor(Color.GREEN);
+            	icon=false;
             }
 		});
 		
 		final Button iconbutton = (Button) findViewById(R.id.iconbutton);
 		iconbutton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            }
-		});
+		  public void onClick(View v) {
+			  
+			icon=true;
+			 
+		  }
+		  });
 		
 	
 		
@@ -108,9 +119,16 @@ public class MainActivity extends Activity {
 	    	super.onTouchEvent(event);
 	    	switch (event.getAction()) {
 	    		case MotionEvent.ACTION_DOWN: {
-	    		
-	    		
-	    			drawView.createNewPath(event.getX(), event.getY()-300);
+	    	    newx=event.getX();
+	    	    newy=event.getY();
+	    		drawView.createNewPath(newx, newy-300);
+	    		if (icon==true){
+	    				
+	    				 drawView.addToPath(newx-200, newy-300);
+	    				 drawView.addToPath(newx-200, newy-100);
+	    				 drawView.addToPath(newx, newy-100);
+	    				 drawView.addToPath(newx, newy-300);
+	    	    }
 	    			
 	    			break;
 	    	
@@ -123,10 +141,13 @@ public class MainActivity extends Activity {
        	       }
          
 	    		case MotionEvent.ACTION_MOVE: {
+	    			Log.v("Testing", "debug"+icon);
 	    			
-	    			newx = event.getX();
-	    			newy = event.getY();
+	    			if(icon==false){
+	    		   newx = event.getX();
+		    	   newy = event.getY();
        	            drawView.addToPath(newx, newy-300);
+	    			}
 	    				
 	    	  }
        }

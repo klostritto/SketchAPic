@@ -239,7 +239,17 @@ int drawable abc_textfield_searchview_holo_dark 0x7f020053
 int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
-int drawable ic_launcher 0x7f020057
+int drawable blue 0x7f020057
+int drawable bluepen 0x7f020058
+int drawable clear 0x7f020059
+int drawable drawing 0x7f02005a
+int drawable green 0x7f02005b
+int drawable greenpen 0x7f02005c
+int drawable ic_launcher 0x7f02005d
+int drawable red 0x7f02005e
+int drawable redpen 0x7f02005f
+int drawable yellow 0x7f020060
+int drawable yellowpen 0x7f020061
 int id action_bar 0x7f05001c
 int id action_bar_activity_content 0x7f050015
 int id action_bar_container 0x7f05001b
@@ -362,6 +372,7 @@ int string backgroundstring 0x7f0a0011
 int string blue 0x7f0a0014
 int string bluebackgroundstring 0x7f0a001c
 int string clearstring 0x7f0a000f
+int string desc 0x7f0a001e
 int string green 0x7f0a0019
 int string greenbackgroundstring 0x7f0a001d
 int string hello_world 0x7f0a0010
