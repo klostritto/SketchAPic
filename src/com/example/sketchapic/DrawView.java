@@ -36,7 +36,7 @@ public class DrawView extends View {
 			    mBitmapPaint.setAntiAlias(true);
 			   
 			    mBitmap = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888);
-			 Log.v("Testing", "HIII");
+			
 		     
 			  
 
@@ -73,6 +73,22 @@ public class DrawView extends View {
 		 public void addToPath(float newx, float newy){
 			 mypath.lineTo(newx, newy);
 				this.invalidate();
+		 }
+		 
+		 public void addCircle(float newx, float newy, float r){
+			 Log.v("Testing", "Circle");
+			 mypath=new Path();
+			 pathList.add(mypath);
+			 mypath.addCircle(newx, newy, r, Path.Direction.CW);
+				mBitmapPaint = new Paint();
+			    mBitmapPaint.setColor(mycolor);
+				mBitmapPaint.setStyle(Paint.Style.STROKE);
+			    mBitmapPaint.setStrokeWidth(5);
+			    mBitmapPaint.setAntiAlias(true);
+				    
+				   paintList.add(mBitmapPaint);
+				this.invalidate();
+				
 		 }
 		
 		

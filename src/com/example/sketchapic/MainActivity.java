@@ -7,7 +7,7 @@ import android.util.Log;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Bitmap;
-import android.widget.Button;
+//import android.widget.Button;
 import android.widget.ImageButton;
 
 
@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 	private float newx;
 	private float newy;
 	public Bitmap mBitmap;
-	private Boolean icon=false;
+	private String icon="none";
 	
 
 	
@@ -38,6 +38,20 @@ public class MainActivity extends Activity {
 		clearbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.clearsheet();
+            }
+		});
+		
+		final ImageButton whitebackgroundbutton = (ImageButton) findViewById(R.id.whitebackground);
+		whitebackgroundbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	drawView.setBackgroundColor(Color.WHITE);	
+            }
+		});
+		
+		final ImageButton blackbackgroundbutton = (ImageButton) findViewById(R.id.blackbackground);
+		blackbackgroundbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	drawView.setBackgroundColor(Color.BLACK);	
             }
 		});
 	
@@ -69,12 +83,30 @@ public class MainActivity extends Activity {
             }
 		});
 		
+		final ImageButton whitepenbutton = (ImageButton) findViewById(R.id.whitepen);
+		whitepenbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	
+            	drawView.setPenColor(Color.WHITE);
+            	icon="none";
+            }
+		});
+		
+		final ImageButton blackpenbutton = (ImageButton) findViewById(R.id.blackpen);
+		blackpenbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	
+            	drawView.setPenColor(Color.BLACK);
+            	icon="none";
+            }
+		});
+		
 		final ImageButton redpenbutton = (ImageButton) findViewById(R.id.redpen);
 		redpenbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	
             	drawView.setPenColor(Color.RED);
-            	icon=false;
+            	icon="none";
             }
 		});
 		
@@ -82,7 +114,7 @@ public class MainActivity extends Activity {
 		bluepenbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.setPenColor(Color.BLUE);
-            	icon=false;
+            	icon="none";
             }
 		});
 		
@@ -90,7 +122,7 @@ public class MainActivity extends Activity {
 		yellowpenbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {	
             	drawView.setPenColor(Color.YELLOW);
-            	icon=false;
+            	icon="none";
             }
 		});
 		
@@ -98,18 +130,44 @@ public class MainActivity extends Activity {
 		greenpenbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	drawView.setPenColor(Color.GREEN);
-            	icon=false;
+            	icon="none";
             }
 		});
 		
-		final Button iconbutton = (Button) findViewById(R.id.iconbutton);
-		iconbutton.setOnClickListener(new View.OnClickListener() {
+		final ImageButton squarebutton = (ImageButton) findViewById(R.id.squarebutton);
+		squarebutton.setOnClickListener(new View.OnClickListener() {
 		  public void onClick(View v) {
 			  
-			icon=true;
+			icon="square";
 			 
 		  }
 		  });
+		final ImageButton trianglebutton = (ImageButton) findViewById(R.id.trianglebutton);
+		trianglebutton.setOnClickListener(new View.OnClickListener() {
+		  public void onClick(View v) {
+			  
+			icon="triangle";
+			 
+		  }
+		  });
+		final ImageButton starbutton = (ImageButton) findViewById(R.id.starbutton);
+		starbutton.setOnClickListener(new View.OnClickListener() {
+		  public void onClick(View v) {
+			  
+			icon="star";
+			 
+		  }
+		  });
+		final ImageButton circlebutton = (ImageButton) findViewById(R.id.circlebutton);
+		circlebutton.setOnClickListener(new View.OnClickListener() {
+		  public void onClick(View v) {
+			  
+			icon="circle";
+			 
+		  }
+		  });
+		
+		
 		
 	
 		
@@ -119,16 +177,45 @@ public class MainActivity extends Activity {
 	    	super.onTouchEvent(event);
 	    	switch (event.getAction()) {
 	    		case MotionEvent.ACTION_DOWN: {
-	    	    newx=event.getX();
-	    	    newy=event.getY();
-	    		drawView.createNewPath(newx, newy-300);
-	    		if (icon==true){
+	    	    newx=event.getRawX();
+	    	    newy=event.getRawY();
+	    	    Log.v("Testing", "X coor is "+newx);
+	    	    Log.v("Testing", "Y coor is "+newy);
+	    	    final int offset=460;
+	    	    if(icon=="none"){
+	    		drawView.createNewPath(newx, newy-offset);
+	    	    } else if (icon=="square"){
 	    				
-	    				 drawView.addToPath(newx-200, newy-300);
-	    				 drawView.addToPath(newx-200, newy-100);
-	    				 drawView.addToPath(newx, newy-100);
-	    				 drawView.addToPath(newx, newy-300);
-	    	    }
+	    				 drawView.createNewPath(newx-100, newy-offset+100);
+	    				 drawView.addToPath(newx+100, newy-offset+100);
+	    				 drawView.addToPath(newx+100, newy-offset-100);
+	    				 drawView.addToPath(newx-100, newy-offset-100);
+	    				 drawView.addToPath(newx-100, newy-offset+100);
+	    	    } else if (icon=="triangle"){
+	    	    	drawView.createNewPath(newx, newy-offset-100);
+   				    drawView.addToPath(newx-100, newy-offset+100);
+   				    drawView.addToPath(newx+100, newy-offset+100);
+   				    drawView.addToPath(newx, newy-offset-100);
+	    	    	
+	    	   } else if (icon=="star"){
+	    		   drawView.createNewPath(newx, newy-offset-100);
+  				   drawView.addToPath(newx+29, newy-offset-29);
+  				   drawView.addToPath(newx+100, newy-offset-21);
+  				   drawView.addToPath(newx+50, newy-offset+29);
+  				   drawView.addToPath(newx+71, newy-offset+100);
+  				   drawView.addToPath(newx, newy-offset+64);
+  				   drawView.addToPath(newx-71, newy-offset+100);
+  				   drawView.addToPath(newx-50, newy-offset+29);
+  			       drawView.addToPath(newx-100, newy-offset-21);
+  			       drawView.addToPath(newx-29, newy-offset-29);
+  			       drawView.addToPath(newx, newy-offset-100);
+	    		   
+	    		   
+	    	   } else if (icon=="circle"){
+	    		   
+	    		   drawView.addCircle(newx, newy-offset, 100);
+	    	   }
+	    	   
 	    			
 	    			break;
 	    	
@@ -143,10 +230,10 @@ public class MainActivity extends Activity {
 	    		case MotionEvent.ACTION_MOVE: {
 	    			Log.v("Testing", "debug"+icon);
 	    			
-	    			if(icon==false){
+	    			if(icon=="none"){
 	    		   newx = event.getX();
 		    	   newy = event.getY();
-       	            drawView.addToPath(newx, newy-300);
+       	            drawView.addToPath(newx, newy-460);
 	    			}
 	    				
 	    	  }
